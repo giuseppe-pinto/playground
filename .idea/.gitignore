@@ -7,3 +7,9 @@
 /dataSources/
 /dataSources.local.xml
 /.idea
+/compiler.xml
+/jarRepositories.xml
+/misc.xml
+/runConfigurations.xml
+/sonarIssues.xml
+/vcs.xml
