@@ -5,7 +5,7 @@ import com.giuseppe.pinto.exception.NotAvailableSeatsException;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-public class SeatManagerWithSet {
+public class SeatManagerOptimized {
 
 
   private int availableSeats;
@@ -13,7 +13,7 @@ public class SeatManagerWithSet {
   SortedSet<Integer> freeTreeSet = new TreeSet<>();
   SortedSet<Integer> busyTreeSet = new TreeSet<>();
 
-  public SeatManagerWithSet(int availableSeats) {
+  public SeatManagerOptimized(int availableSeats) {
     this.availableSeats = availableSeats;
   }
 
