@@ -1,4 +1,4 @@
-import com.giuseppe.pinto.SeatManager;
+import com.giuseppe.pinto.SeatManagerWithSet;
 import com.giuseppe.pinto.exception.NotAvailableSeatsException;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ public class AcceptanceTest {
 
   @Test
   void acceptance() {
-    SeatManager seatManager = new SeatManager(5);
+    SeatManagerWithSet seatManager = new SeatManagerWithSet(5);
 
     int actual = seatManager.reserve();
     assertThat(actual).isEqualTo(1);
