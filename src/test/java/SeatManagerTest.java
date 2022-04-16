@@ -1,5 +1,4 @@
 import com.giuseppe.pinto.SeatManager;
-import com.giuseppe.pinto.exception.NotAvailableSeatsException;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -26,7 +25,7 @@ class SeatManagerTest {
   @Test
   void shouldGoInErrorWhenAskToReserveAnUnavailablePlace() {
     SeatManager seatManager = new SeatManager(0);
-    assertThrows(NotAvailableSeatsException.class, seatManager::reserve);
+    assertThrows(RuntimeException.class, seatManager::reserve);
   }
 
   @Test

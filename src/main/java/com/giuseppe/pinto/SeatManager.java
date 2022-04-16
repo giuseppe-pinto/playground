@@ -1,7 +1,5 @@
 package com.giuseppe.pinto;
 
-import com.giuseppe.pinto.exception.NotAvailableSeatsException;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -28,7 +26,7 @@ public class SeatManager {
             .stream()
             .filter(entry -> Objects.equals(entry.getValue(), "free"))
             .findFirst()
-            .orElseThrow(() -> new NotAvailableSeatsException("There are no seats available"));
+            .orElseThrow(() -> new RuntimeException("There are no seats available"));
 
     System.out.println("Available seat number " + firstAvailableSeat);
 
