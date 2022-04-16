@@ -1,5 +1,4 @@
 import com.giuseppe.pinto.SeatManagerOptimized;
-import com.giuseppe.pinto.exception.NotAvailableSeatsException;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -42,7 +41,7 @@ public class AcceptanceTest {
     actual = seatManager.reserve();
     assertThat(actual).isEqualTo(2);
 
-    assertThrows(NotAvailableSeatsException.class, seatManager::reserve);
+    assertThrows(RuntimeException.class, seatManager::reserve);
 
   }
 }

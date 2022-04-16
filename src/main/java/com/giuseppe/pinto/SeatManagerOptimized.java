@@ -1,7 +1,5 @@
 package com.giuseppe.pinto;
 
-import com.giuseppe.pinto.exception.NotAvailableSeatsException;
-
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -9,7 +7,6 @@ public class SeatManagerOptimized {
 
 
   private int availableSeats;
-
   SortedSet<Integer> freeTreeSet = new TreeSet<>();
   SortedSet<Integer> busyTreeSet = new TreeSet<>();
 
@@ -22,20 +19,24 @@ public class SeatManagerOptimized {
     if (availableSeats > 0) {
 
       if (freeTreeSet.isEmpty()) {
-        int lastIndexAvailable = busyTreeSet.isEmpty() ? 1 : busyTreeSet.last() + 1;
-        busyTreeSet.add(lastIndexAvailable);
+        //if the free set is empty, we need to peek the first place from busySet or the last if it is not empty.
+        int firstNotBusySeatAvailable = busyTreeSet.isEmpty() ? 1 : busyTreeSet.last() + 1;
+        busyTreeSet.add(firstNotBusySeatAvailable);
+        //decrease the counter for available seats
         availableSeats--;
-        return lastIndexAvailable;
+        return firstNotBusySeatAvailable;
       } else {
-        Integer free = freeTreeSet.first();
-        freeTreeSet.remove(free);
-        busyTreeSet.add(free);
+        //if the free set is not empty, we need to peek the first place free remove it and put it into the busy one.
+        Integer firstFreeSeatAvailable = freeTreeSet.first();
+        freeTreeSet.remove(firstFreeSeatAvailable);
+        busyTreeSet.add(firstFreeSeatAvailable);
+        //decrease the counter for available seats
         availableSeats--;
-        return free;
+        return firstFreeSeatAvailable;
       }
 
     } else {
-      throw new NotAvailableSeatsException("There are no more available seats");
+      throw new RuntimeException("There are no more available seats");
     }
 
   }
@@ -48,6 +49,7 @@ public class SeatManagerOptimized {
       busyTreeSet.remove(seatNumber);
       freeTreeSet.add(seatNumber);
     }
+    //increase the counter for available seats
     availableSeats = availableSeats + 1;
   }
 
