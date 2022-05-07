@@ -7,9 +7,9 @@ class ResultTest {
   @Test
   void name() {
 
-    String actual = Result.timeConversion("07:05:45PM");
+    String actual = Result.timeConversion("07:50:40PM");
 
-    assertEquals("19:05:45", actual);
+    assertEquals("19:50:40", actual);
 
 
   }
