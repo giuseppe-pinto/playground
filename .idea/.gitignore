@@ -7,3 +7,16 @@
 /dataSources/
 /dataSources.local.xml
 /.idea
+/codeStyles/codeStyleConfig.xml
+/codeStyles/Project.xml
+/aws.xml
+/compiler.xml
+/dbnavigator.xml
+/encodings.xml
+/jarRepositories.xml
+/jpa-buddy.xml
+/misc.xml
+/runConfigurations.xml
+/sonarIssues.xml
+/uiDesigner.xml
+/vcs.xml
